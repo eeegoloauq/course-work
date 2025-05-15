@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.template.study
+Exec=/usr/bin/ru.template.study
+Name=Favorite Movies
+Name[ru]=Любимые фильмы
+
+[X-Application]
+Permissions=UserDirs
+OrganizationName=ru.template
+ApplicationName=study
+ExecDBus=/usr/bin/ru.template.study
