@@ -32,39 +32,6 @@ Page {
         title: currentMovie ? currentMovie.title : qsTr("Детали фильма")
     }
     
-    // Confirmation dialog for deletions
-    Component {
-        id: deleteConfirmDialog
-        
-        Dialog {
-            id: deleteDialog
-            
-            DialogHeader {
-                title: qsTr("Удалить фильм")
-                acceptText: qsTr("Удалить")
-                cancelText: qsTr("Отмена")
-            }
-            
-            Label {
-                anchors {
-                    top: parent.top
-                    topMargin: header.height + Theme.paddingLarge
-                    left: parent.left
-                    right: parent.right
-                    leftMargin: Theme.horizontalPageMargin
-                    rightMargin: Theme.horizontalPageMargin
-                }
-                text: qsTr("Вы действительно хотите удалить фильм \"%1\"?").arg(currentMovie.title)
-                wrapMode: Text.Wrap
-                color: Theme.highlightColor
-            }
-            
-            onAccepted: {
-                deleteCurrentMovie()
-            }
-        }
-    }
-    
     SilicaFlickable {
         anchors {
             top: header.bottom
@@ -193,7 +160,7 @@ Page {
                 text: qsTr("Удалить фильм")
                 anchors.horizontalCenter: parent.horizontalCenter
                 color: Theme.errorColor
-                onClicked: pageStack.push(deleteConfirmDialog)
+                onClicked: deleteCurrentMovie()
             }
         }
         
